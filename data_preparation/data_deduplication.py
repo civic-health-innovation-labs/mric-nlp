@@ -14,6 +14,7 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 def checkIfSubArray(seqA, seqB, return_last_index=False):
     '''
+    Handle scenario where duplicate sequence is nested within another sequence
     Args:
         seqA: Can be a string or sequence of tokens (array or list)
         seqB: ''
@@ -43,6 +44,7 @@ def checkIfSubArray(seqA, seqB, return_last_index=False):
 
 def jaccard_similarity(doc1: str, doc2: str):
     '''
+    Handle situation where duplicate sequence differs from another by only a few tokens which are not substantitive enough.
     Returns:computes and returns the Jaccard index score between doc1 and doc2 which are both strings
     '''
     set1, set2 = set(doc1.split()), set(doc2.split())
